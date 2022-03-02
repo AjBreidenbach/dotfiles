@@ -1,9 +1,9 @@
 call plug#begin()
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'purescript-contrib/purescript-vim'
-"Plug 'ncm2/ncm2'
-"Plug 'ncm2/ncm2-bufword'
-"Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-path'
 Plug 'roxma/nvim-yarp'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'scrooloose/nerdtree'
@@ -52,12 +52,15 @@ Plug 'eslint/eslint'
 "Plug 'vim-syntastic/syntastic'
 "Plug 'dense-analysis/ale'
 Plug 'jparise/vim-graphql'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 let g:mapleader = ","
 
-source $HOME/.config/nvim/nvim-configs/coc-base-config.vim
+"source $HOME/.config/nvim/nvim-configs/coc-base-config.vim
 
+let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_custom_ignore ='/node_modules/*'
 let g:flake8_show_in_file = 1
 
 let g:python3_host_prog="/usr/bin/python3"
@@ -68,7 +71,7 @@ nmap <silent> <C-p> :CtrlP :pwd
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-"autocmd BufEnter * call ncm2#enable_for_buffer()
+autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=noinsert,menuone,noselect
 
 
@@ -108,10 +111,13 @@ set mouse=a
 syntax on
 
 
-"colorscheme PaperColor
 if g:remoteSession
   set nornu nonu
   set numberwidth=1
+  hi Normal guibg=NONE ctermbg=NONE
+  hi EndOfBuffer guibg=NONE ctermbg=NONE
+  hi LineNr guibg=NONE ctermbg=NONE
+
   "set cursorline
   "set cursorcolumn
   "colorscheme zellner
@@ -119,9 +125,11 @@ endif
 
 
 
+colorscheme crayon
+"colorscheme PaperColor
 "colorscheme lightning
 "colorscheme woju
-colorscheme brogrammer
+"colorscheme brogrammer
 "colorscheme candycode
 "colorscheme 256-grayvim
 "colorscheme LightDefault
@@ -133,9 +141,6 @@ colorscheme brogrammer
 "colorscheme Tomorrow
 
 
-hi Normal guibg=NONE ctermbg=NONE
-hi EndOfBuffer guibg=NONE ctermbg=NONE
-hi LineNr guibg=NONE ctermbg=NONE
 "hi CursorColumn guibg=NONE ctermbg=NONE
 "hi CursorLine guibg=NONE ctermbg=NONE
 
@@ -153,6 +158,11 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set linebreak
+set foldmethod=syntax
+set foldlevelstart=99
+set foldminlines=3
+set foldnestmax=5
+
 
 let g:vimspector_enable_mappings = 'HUMAN'
 "call neomake#configure#automake('w')
