@@ -55,9 +55,13 @@ Plug 'jparise/vim-graphql'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
+set shell=bash
 let g:mapleader = ","
 
 "source $HOME/.config/nvim/nvim-configs/coc-base-config.vim
+
+let g:matchparen_timeout = 1
+let g:matchparen_insert_timeout = 1
 
 let g:ctrlp_working_path_mode = 'c'
 let g:ctrlp_custom_ignore ='/node_modules/*'
@@ -125,7 +129,8 @@ endif
 
 
 
-colorscheme crayon
+colorscheme vice
+"colorscheme crayon
 "colorscheme PaperColor
 "colorscheme lightning
 "colorscheme woju
