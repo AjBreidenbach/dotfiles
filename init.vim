@@ -93,12 +93,12 @@ let g:tagbar_use_cache = 0
 let g:tagbar_ctags_bin = "ctags"
 
 
-let g:remoteSession = ($SSH_CLIENT != "")
+let g:nobg = ($SSH_CLIENT != "") || ($VI == "nobg")
 
 let $BASH_ENV = "~/.bash_aliases"
 
 function! Numbering()
-        if (&filetype != 'nerdtree' && !g:remoteSession)
+        if (&filetype != 'nerdtree' && !g:nobg)
                 set number relativenumber
         endif
 endfunc
@@ -115,7 +115,7 @@ set mouse=a
 syntax on
 
 
-if g:remoteSession
+if g:nobg
   set nornu nonu
   set numberwidth=1
   hi Normal guibg=NONE ctermbg=NONE
@@ -125,11 +125,10 @@ if g:remoteSession
   "set cursorline
   "set cursorcolumn
   "colorscheme zellner
+else 
+  colorscheme vice
 endif
 
-
-
-colorscheme vice
 "colorscheme crayon
 "colorscheme PaperColor
 "colorscheme lightning
