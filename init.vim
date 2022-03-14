@@ -63,7 +63,8 @@ let g:mapleader = ","
 let g:matchparen_timeout = 1
 let g:matchparen_insert_timeout = 1
 
-let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_root_markers = ['package.json']
 let g:ctrlp_custom_ignore ='/node_modules/*'
 let g:flake8_show_in_file = 1
 
@@ -126,7 +127,8 @@ if g:nobg
   "set cursorcolumn
   "colorscheme zellner
 else 
-  colorscheme vice
+  "colorscheme vice
+  colorscheme PaperColor
 endif
 
 "colorscheme crayon
@@ -162,7 +164,7 @@ set shiftwidth=2
 set softtabstop=2
 set expandtab
 set linebreak
-set foldmethod=syntax
+set foldmethod=indent
 set foldlevelstart=99
 set foldminlines=3
 set foldnestmax=5
