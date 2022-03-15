@@ -126,10 +126,9 @@ if g:nobg
   "set cursorline
   "set cursorcolumn
   "colorscheme zellner
-else 
-  "colorscheme vice
-  colorscheme PaperColor
 endif
+set background=light
+colorscheme PaperColor
 
 "colorscheme crayon
 "colorscheme PaperColor
