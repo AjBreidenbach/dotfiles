@@ -59,6 +59,7 @@ set shell=bash
 let g:mapleader = ","
 
 "source $HOME/.config/nvim/nvim-configs/coc-base-config.vim
+lua require('log')
 
 let g:matchparen_timeout = 1
 let g:matchparen_insert_timeout = 1

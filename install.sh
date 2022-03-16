@@ -38,12 +38,9 @@ popd
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
 
-mkdir -p $HOME/.config/nvim
-pushd $HOME/.config/nvim
-unlink init.vim
-unlink nvim-configs
-ln -s $here/init.vim .
-ln -s $here/nvim-configs .
+# untested changes
+pushd $HOME/.config
+ln -s $here/nvim .
 popd
 
 ln -s $here/.tmux.conf $(realpath $HOME/.tmux.conf)
