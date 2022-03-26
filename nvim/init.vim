@@ -72,6 +72,7 @@ let g:flake8_show_in_file = 1
 let g:python3_host_prog="/usr/bin/python3"
 let g:NERDTreeWinSize =30 
 nmap <silent> <C-t> :NERDTreeToggle<CR>
+nmap <silent> <leader>t :tabnew<CR>
 
 nmap <silent> <C-p> :CtrlP :pwd
 
@@ -113,24 +114,14 @@ autocmd BufEnter * :call Numbering()
 autocmd BufWrite *.py :Autoformat
 
 set mouse=a
+:set fcs=stl:\ ,vert:\ ,eob:\ 
 
 syntax on
 
-
-if g:nobg
-  set nornu nonu
-  set numberwidth=1
-  hi Normal guibg=NONE ctermbg=NONE
-  hi EndOfBuffer guibg=NONE ctermbg=NONE
-  hi LineNr guibg=NONE ctermbg=NONE
-
-  "set cursorline
-  "set cursorcolumn
-  "colorscheme zellner
-endif
-set background=light
-colorscheme PaperColor
-
+"set background=light
+colorscheme buddy
+"colorscheme PaperColor
+"colorscheme SweetCandy
 "colorscheme crayon
 "colorscheme PaperColor
 "colorscheme lightning
@@ -146,9 +137,22 @@ colorscheme PaperColor
 "colorscheme Monokai
 "colorscheme Tomorrow
 
+hi VertSplit ctermbg=NONE
+hi VertSplit ctermfg=NONE
+hi VertSplit cterm=NONE
+hi Normal guibg=NONE ctermbg=NONE
+hi EndOfBuffer guibg=NONE ctermbg=NONE
 
-"hi CursorColumn guibg=NONE ctermbg=NONE
-"hi CursorLine guibg=NONE ctermbg=NONE
+if g:nobg
+  set nornu nonu
+  set numberwidth=1
+  hi LineNr guibg=NONE ctermbg=NONE
+
+  "set cursorline
+  "set cursorcolumn
+  "colorscheme zellner
+endif
+
 
 set guifont=Monofur:h15
 let g:multi_cursor_use_default_mapping=0
